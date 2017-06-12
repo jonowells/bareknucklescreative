@@ -1,0 +1,36 @@
+body {
+    background: #000000;
+}
+
+.bgvideo {
+    display: block;
+    width: 100%;
+    opacity: 0.6;
+    transition: opacity 1s ease-in-out,
+                filter 1s ease-in-out,
+                transform 1s ease-in-out;
+
+}
+
+.bgvideo.blurred {
+    filter: blur(5px);
+}
+
+.bgvideo.playing {
+    opacity: 1;
+    transform: translate3d(0,0,200px);
+    text-decoration: line-through;
+    text-decoration: blink;
+}
+
+.bgvideo.fullscreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translate3d(-50%, -50%) rotate3d(50%);
+}
