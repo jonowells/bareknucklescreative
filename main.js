@@ -1,35 +1,47 @@
 var bgVideo;
+var videos;
+
+function setBGVideoState(newState) {
+    bgVideo.className = "bgvideo";
+    bgVideo.classList.add(newState);
+}
+
+function getBGVideoState(newState) {
+    if (bgVideo.classList.contains("playing")) {
+        return "playing";
+    }
+    if (bgVideo.classList.contains("blurred")) {
+        return "blurred";
+    }
+    return "default";
+}
 
 function cycleState(event) {
-    var video = event.target;
-
-    function replaceVideoClass(oldClass, newClass) {
-        video.classList.remove(oldClass);
-        video.classList.add(newClass);
-    }
-
-    if (video.classList.contains("default")) {
-        replaceVideoClass("default", "blurred");
-    } else if (video.classList.contains("blurred")) {
-        replaceVideoClass("blurred", "playing");
-    } else if (video.classList.contains("playing")) {
-        replaceVideoClass("playing", "default");
+    if (bgVideo.classList.contains("default")) {
+        setBGVideoState("blurred");
+    } else if (bgVideo.classList.contains("blurred")) {
+        setBGVideoState("playing");
+    } else if (bgVideo.classList.contains("playing")) {
+        setBGVideoState("default");
     }
 }
-
-function pageLoaded() {
-    bgVideo = document.querySelector(".bgvideo");
-    bgVideo.classList.add("default");
-    bgVideo.addEventListener("mouseup", cycleState);
-}
-
-document.addEventListener("DOMContentLoaded", pageLoaded);
 
 var lastKnownScrollPosition = 0;
 var ticking = false;
 
-function doSomething(scroll_pos) {
-    // do something with the scroll position
+function doScrollActions(scrollPosition) {
+    if (isOverlap(bgVideo, videos)) {
+        setBGVideoState("blurred");
+    }
+    else {
+        setBGVideoState("default");
+    }
+}
+
+function isOverlap(element1, element2) {
+    var rect1 = element1.getBoundingClientRect();
+    var rect2 = element2.getBoundingClientRect();
+    return !(rect1.right < rect2.left || rect1.left > rect2.right || rect1.bottom < rect2.top || rect1.top > rect2.bottom);
 }
 
 function isScrolledIntoView(element) {
@@ -43,11 +55,20 @@ function handleScroll(event) {
     lastKnownScrollPosition = window.scrollY;
     if (!ticking) {
         window.requestAnimationFrame(function() {
-            doSomething(lastKnownScrollPosition);
+            doScrollActions(lastKnownScrollPosition);
             ticking = false;
         });
     }
     ticking = true;
 }
 
+function pageLoaded() {
+    bgVideo = document.querySelector(".bgvideo");
+    bgVideo.classList.add("default");
+    bgVideo.addEventListener("mouseup", cycleState);
+
+    videos = document.querySelector(".videos");
+}
+
+document.addEventListener("DOMContentLoaded", pageLoaded);
 window.addEventListener('scroll', handleScroll);

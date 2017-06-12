@@ -1,33 +1,51 @@
 body {
     background: #000000;
     margin: 0;
+    height: 100%;
+    /*box-sizing: border-box;*/
 }
 .frame {
     position: fixed;
     z-index: -1;
-    width: 100%;
-    perspective: 600;
-}
-.bgvideo {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    perspective: 600px;
+}
+.bgvideo {
+    width: 100%;
+    position: absolute;
+    top: 0;
     transform-style: preserve-3d;
     opacity: 0.6;
     filter: blur(0px);
-    transition: opacity 1s ease-in-out,
-                filter 1s ease-in-out,
-                transform 1s ease-in-out;
+    transform: translate3d(0,0,0);
+    transition: opacity 0.5s ease-in-out,
+                filter 0.5s ease-in-out,
+                transform 0.5s ease-in-out;
 
 
 }
 
 .bgvideo.blurred {
-    filter: blur(5px);
+    filter: blur(10px);
 }
 
 .bgvideo.playing {
     opacity: 1;
     transform: translate3d(0,0,200px);
+}
+
+.videos {
+    margin-top: 56.25%;
+    padding-bottom: 56.25%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.video {
+    height: 200px;
+    width: 40%;
+    margin: 20px;
+    background: blue;
 }
