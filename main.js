@@ -25,18 +25,25 @@ function pageLoaded() {
 
 document.addEventListener("DOMContentLoaded", pageLoaded);
 
-var last_known_scroll_position = 0;
+var lastKnownScrollPosition = 0;
 var ticking = false;
 
 function doSomething(scroll_pos) {
     // do something with the scroll position
 }
 
+function isScrolledIntoView(element) {
+    var elemTop = element.getBoundingClientRect().top;
+    var elemBottom = element.getBoundingClientRect().bottom;
+    var isVisible = elementTop < window.innerHeight && elementBottom >= 0;
+    return isVisible;
+}
+
 function handleScroll(event) {
-    last_known_scroll_position = window.scrollY;
+    lastKnownScrollPosition = window.scrollY;
     if (!ticking) {
         window.requestAnimationFrame(function() {
-            doSomething(last_known_scroll_position);
+            doSomething(lastKnownScrollPosition);
             ticking = false;
         });
     }
