@@ -1,27 +1,23 @@
+var body = document.body;
+var bgState;
 var bgVideo;
 var videos;
 
 function setBGVideoState(newState) {
-    bgVideo.className = "bgvideo";
-    bgVideo.classList.add(newState);
-}
-
-function getBGVideoState(newState) {
-    if (bgVideo.classList.contains("playing")) {
-        return "playing";
+    if (newState === bgState) {
+        return;
     }
-    if (bgVideo.classList.contains("blurred")) {
-        return "blurred";
-    }
-    return "default";
+    body.className = "";
+    body.classList.add(newState);
+    bgState = newState;
 }
 
 function cycleState(event) {
-    if (bgVideo.classList.contains("default")) {
+    if (body.classList.contains("default")) {
         setBGVideoState("blurred");
-    } else if (bgVideo.classList.contains("blurred")) {
+    } else if (body.classList.contains("blurred")) {
         setBGVideoState("playing");
-    } else if (bgVideo.classList.contains("playing")) {
+    } else if (body.classList.contains("playing")) {
         setBGVideoState("default");
     }
 }
@@ -56,11 +52,11 @@ function handleScroll(event) {
 }
 
 function pageLoaded() {
+    body.classList.add("default");
     bgVideo = document.querySelector(".bgvideo");
-    bgVideo.classList.add("default");
     bgVideo.addEventListener("mouseup", cycleState);
-    handleScroll();
     videos = document.querySelector(".videos");
+    handleScroll();
 }
 
 document.addEventListener("DOMContentLoaded", pageLoaded);

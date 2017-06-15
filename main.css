@@ -7,59 +7,66 @@ body {
     margin: 0 auto;
     height: 100%;
 }
+    .frame {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        perspective: 600px;
+    }
+        .bgvideo {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            transform-style: preserve-3d;
+            opacity: 0.6;
+            filter: blur(0px);
+            transform: translate3d(0,0,0);
+            transition: opacity 0.5s ease-in-out,
+                        filter 0.5s ease-in-out,
+                        transform 0.5s ease-in-out;
 
-.frame {
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    perspective: 600px;
+
+        }
+        .blurred .bgvideo {
+            filter: blur(10px);
+        }
+        .playing .bgvideo {
+            opacity: 1;
+            transform: translate3d(0,0,200px);
+        }
+
+.content {
+    padding: 0 5%;
 }
+    header {
 
-.bgvideo {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    transform-style: preserve-3d;
-    opacity: 0.6;
-    filter: blur(0px);
-    transform: translate3d(0,0,0);
-    transition: opacity 0.5s ease-in-out,
-                filter 0.5s ease-in-out,
-                transform 0.5s ease-in-out;
+    }
+        .logo {
 
+        }
+        .tagline {
 
-}
+        }
+        .nav {
 
-.bgvideo.blurred {
-    filter: blur(10px);
-}
+        }
 
-.bgvideo.playing {
-    opacity: 1;
-    transform: translate3d(0,0,200px);
-}
+    .videos {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+        .video {
+            flex: 0 0 calc(48%);
+            margin: 2% 0;
+        }
 
-content {
-    /*width: 100%;*/
-}
+            .video > img {
+                width: 100%;
+            }
 
-.videos {
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-.video {
-    flex: 1 0 calc(50% - 80px);
-    margin: 20px;
-}
-
-.video > img {
-    width: 100%;
-}
-
-.history {
-    margin-bottom: 800px;
-}
+    .history {
+        margin-bottom: 800px;
+    }
