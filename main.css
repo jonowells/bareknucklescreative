@@ -1,9 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: #000000;
-    margin: 0;
+    margin: 0 auto;
     height: 100%;
-    /*box-sizing: border-box;*/
 }
+
 .frame {
     position: fixed;
     z-index: -1;
@@ -12,6 +16,7 @@ body {
     width: 100%;
     perspective: 600px;
 }
+
 .bgvideo {
     width: 100%;
     position: absolute;
@@ -36,16 +41,25 @@ body {
     transform: translate3d(0,0,200px);
 }
 
+content {
+    /*width: 100%;*/
+}
+
 .videos {
-    margin-top: 56.25%;
-    padding-bottom: 56.25%;
+    padding: 0 20px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 .video {
-    height: 200px;
-    width: 40%;
+    flex: 1 0 calc(50% - 80px);
     margin: 20px;
-    background: blue;
+}
+
+.video > img {
+    width: 100%;
+}
+
+.history {
+    margin-bottom: 800px;
 }

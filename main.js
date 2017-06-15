@@ -44,13 +44,6 @@ function isOverlap(element1, element2) {
     return !(rect1.right < rect2.left || rect1.left > rect2.right || rect1.bottom < rect2.top || rect1.top > rect2.bottom);
 }
 
-function isScrolledIntoView(element) {
-    var elemTop = element.getBoundingClientRect().top;
-    var elemBottom = element.getBoundingClientRect().bottom;
-    var isVisible = elementTop < window.innerHeight && elementBottom >= 0;
-    return isVisible;
-}
-
 function handleScroll(event) {
     lastKnownScrollPosition = window.scrollY;
     if (!ticking) {
@@ -66,7 +59,7 @@ function pageLoaded() {
     bgVideo = document.querySelector(".bgvideo");
     bgVideo.classList.add("default");
     bgVideo.addEventListener("mouseup", cycleState);
-
+    handleScroll();
     videos = document.querySelector(".videos");
 }
 
