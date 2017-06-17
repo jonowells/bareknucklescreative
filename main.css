@@ -1,50 +1,79 @@
+/*  BEGIN Page Styles  */
+
 * {
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
+    font-family: Helvetica, Ariel;
     background: #000000;
+    color: #eee;
     margin: 0 auto;
     height: 100%;
 }
-    .frame {
-        position: fixed;
-        z-index: -1;
-        top: 0;
-        left: 0;
+
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+/*  END Page Styles  */
+
+
+
+/*  BEGIN Background Frame  */
+
+.frame {
+    position: fixed;
+    z-index: -1;
+    margin: 0 auto;
+    /*top: 0;
+    left: 0;*/
+    height: 80%;
+    perspective: 600px;
+}
+    .bgvideo {
         width: 100%;
-        perspective: 600px;
+        position: absolute;
+        top: 0;
+        transform-style: preserve-3d;
+        opacity: 0.6;
+        filter: blur(0px);
+        transform: translate3d(0,0,0);
+        transition: opacity 0.5s ease-in-out,
+                    filter 0.5s ease-in-out,
+                    transform 0.5s ease-in-out;
+
+
     }
-        .bgvideo {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            transform-style: preserve-3d;
-            opacity: 0.6;
-            filter: blur(0px);
-            transform: translate3d(0,0,0);
-            transition: opacity 0.5s ease-in-out,
-                        filter 0.5s ease-in-out,
-                        transform 0.5s ease-in-out;
+    .blurred .bgvideo {
+        filter: blur(10px);
+    }
+    .playing .bgvideo {
+        opacity: 1;
+        transform: translate3d(0,0,200px);
+    }
+
+/*  END Background Frame  */
 
 
-        }
-        .blurred .bgvideo {
-            filter: blur(10px);
-        }
-        .playing .bgvideo {
-            opacity: 1;
-            transform: translate3d(0,0,200px);
-        }
+
+/*  BEGIN Main Content  */
 
 .content {
     padding: 0 5%;
+    height: 100%;
 }
     header {
-
+        height: 90%;
     }
         .logo {
-
+            position: absolute;
+            top: 40%;
         }
         .tagline {
 
@@ -68,5 +97,10 @@ body {
             }
 
     .history {
-        margin-bottom: 800px;
+        height: 50%;
     }
+    footer {
+        height: 50%;
+    }
+
+/*  END Main Content  */
