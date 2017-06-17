@@ -1,24 +1,24 @@
 /*  BEGIN Page Styles  */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    font-family: Helvetica, Ariel;
-    background: #000000;
-    color: #eee;
-    margin: 0 auto;
-    height: 100%;
+  font-family: Helvetica, Ariel;
+  background: #000000;
+  color: #eee;
+  margin: 0 auto;
+  height: 100%;
 }
 
 a {
-    text-decoration: none;
-    color: #eee;
+  text-decoration: none;
+  color: #eee;
 }
 
 /*  END Page Styles  */
@@ -28,35 +28,39 @@ a {
 /*  BEGIN Background Frame  */
 
 .frame {
-    position: fixed;
-    z-index: -1;
-    margin: 0 auto;
-    /*top: 0;
-    left: 0;*/
-    height: 80%;
-    perspective: 600px;
+  position: fixed;
+  z-index: -1;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top:  56.25%;
+  perspective: 600px;
 }
-    .bgvideo {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        transform-style: preserve-3d;
-        opacity: 0.6;
-        filter: blur(0px);
-        transform: translate3d(0,0,0);
-        transition: opacity 0.5s ease-in-out,
-                    filter 0.5s ease-in-out,
-                    transform 0.5s ease-in-out;
+  .bgvideo {
+    max-width:  100%;
+    max-height:  100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform-style: preserve-3d;
+    opacity: 0.6;
+    filter: blur(0px);
+    transform: translate3d(0,0,0);
+    transition: opacity 0.5s ease-in-out,
+                filter 0.5s ease-in-out,
+                transform 0.5s ease-in-out;
 
-
-    }
-    .blurred .bgvideo {
-        filter: blur(10px);
-    }
-    .playing .bgvideo {
-        opacity: 1;
-        transform: translate3d(0,0,200px);
-    }
+  }
+  .blurred .bgvideo {
+    filter: blur(10px);
+  }
+  .playing .bgvideo {
+    opacity: 1;
+    transform: translate3d(0,0,200px);
+  }
 
 /*  END Background Frame  */
 
@@ -65,42 +69,46 @@ a {
 /*  BEGIN Main Content  */
 
 .content {
-    padding: 0 5%;
-    height: 100%;
+  padding-top: 56.65%;
+  height: 100%;
 }
-    header {
-        height: 90%;
+  header {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+    .logo {
+      
     }
-        .logo {
-            position: absolute;
-            top: 40%;
-        }
-        .tagline {
+    .tagline {
 
-        }
-        .nav {
-
-        }
-
-    .videos {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
     }
-        .video {
-            flex: 0 0 calc(48%);
-            margin: 2% 0;
-        }
+    .nav {
 
-            .video > img {
-                width: 100%;
-            }
+    }
 
-    .history {
-        height: 50%;
+  .videos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+    .video {
+      flex: 0 0 calc(48%);
+      margin: 2% 0;
     }
-    footer {
-        height: 50%;
-    }
+
+      .video > img {
+        width: 100%;
+      }
+
+  .history {
+    height: 50%;
+  }
+  footer {
+    height: 50%;
+  }
 
 /*  END Main Content  */
+    
