@@ -12,16 +12,6 @@ function setBGVideoState(newState) {
   bgState = newState;
 }
 
-function cycleState(event) {
-  if (body.classList.contains("default")) {
-    setBGVideoState("blurred");
-  } else if (body.classList.contains("blurred")) {
-    setBGVideoState("playing");
-  } else if (body.classList.contains("playing")) {
-    setBGVideoState("default");
-  }
-}
-
 var lastKnownScrollPosition = 0;
 var ticking = false;
 
@@ -51,14 +41,22 @@ function handleScroll(event) {
   ticking = true;
 }
 
+function playVideo(event) {
+  var video = event.target;
+  setBGVideoState("playing");
+  video.parentElement.classList.add("selected")
+}
+
 function pageLoaded() {
   body.classList.add("default");
   bgVideo = document.querySelector(".bgvideo");
-  bgVideo.addEventListener("mouseup", cycleState);
   videos = document.querySelector(".videos");
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", doScrollActions);
+  videos.addEventListener("mouseup", playVideo);
   doScrollActions();
 }
 
 document.addEventListener("DOMContentLoaded", pageLoaded);
-window.addEventListener("scroll", handleScroll);
-window.addEventListener("resize", doScrollActions);
+
+
