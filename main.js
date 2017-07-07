@@ -58,5 +58,3 @@ function pageLoaded() {
 }
 
 document.addEventListener("DOMContentLoaded", pageLoaded);
-
-

@@ -1,15 +1,18 @@
-/*  BEGIN Page Styles  */
+/* @group Global styles */
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   font-family: Helvetica, Ariel;
+  letter-spacing: 0.2;
+  font-size: 14px;
   background: #000000;
   color: #eee;
   margin: 0 auto;
@@ -23,17 +26,21 @@ a {
 
 .container {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
 }
-/*  END Page Styles  */
 
 
+/* @end */
 
-/*  BEGIN Background Frame  */
+
+/* @group Background Frame */
 
 .frame {
   position: fixed;
@@ -42,109 +49,113 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  padding-top:  56.25%;
+  padding-top: 56.25%;
   perspective: 600px;
-  }
-  .bgvideo {
-    max-width:  100%;
-    max-height:  100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transform-style: preserve-3d;
-    opacity: 0.6;
-    filter: blur(0px);
-    transform: translate3d(0,0,0);
-    transform-origin: 0 0 0;
-    transition: opacity 0.5s ease-in-out,
-                filter 0.5s ease-in-out,
-                transform 0.5s ease-in-out;
-  }
-  .blurred .bgvideo {
-    filter: blur(10px);
-  }
-  .playing .bgvideo {
-    opacity: 1;
-    transform: translate3d(0,0,200px);
 }
 
-/*  END Background Frame  */
+.bgvideo {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform-style: preserve-3d;
+  opacity: 0.6;
+  filter: blur(0px);
+  transform: translate3d(0, 0, 0);
+  transform-origin: 0 0 0;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.blurred .bgvideo {
+  filter: blur(10px);
+}
+
+.playing .bgvideo {
+  opacity: 1;
+  transform: translate3d(0, 0, 200px);
+}
 
 
+/* @end */
 
-/*  BEGIN Main Content  */
+
+/* @group Main Content */
 
 .content {
   padding: 0 3%;
   perspective: 600px;
-  }
-  header {
-    position: relative;
-    padding: 56.65% 4% 0;
-    }
-    nav {
-      position: fixed;
-      text-align: right;
-      top: 0;
-      right: 0;
-      margin: 2% 3%;
-      width: 30%;
-      text-transform: uppercase;
-      z-index: 9999;
-      }
-      nav a {
-        margin: 0 3%;
-    }
-    /*.container {} */
-      .logo {
-        font-size: 64px;
-        font-weight: 400;
-        margin: 0;
-      }
-      .tagline {
-        font-size: 36px;
-        font-weight: 100;
-  }
+}
 
-  .videos {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    transform-style: preserve-3d;
-    transform: translate3d(0,0,-100px);
-    transition: transform 0.5s ease-out,
-                opacity 0.5s ease-out;
-    }
-    .blurred .videos {
-      transform: translate3d(0,0,0);
-    }
-    .playing .videos {
-      transform: translate3d(0,0,600px);
-      opacity: 0;
-    }
-    .video {
-      flex: 0 0 calc(48%);
-      margin: 2% 0;
-      }
-      .video > img {
-        width: 100%;
-  }
+header {
+  position: relative;
+  padding: 56.65% 4% 0;
+}
 
-  footer {
-    position: relative;
-    padding: 56.65% 4% 0;
-    }
-  /*.container {} */
-      .history {
-        text-align: center;
-        width: 60%;
-    }
-  }
+nav {
+  position: fixed;
+  text-align: right;
+  top: 0;
+  right: 0;
+  margin: 2% 3%;
+  width: 30%;
+  text-transform: uppercase;
+  z-index: 9999;
+}
 
-/*  END Main Content  */
+nav a {
+  margin: 0 3%;
+}
 
+.logo {
+  font-size: 64px;
+  font-weight: 400;
+  margin: 0;
+}
 
+.tagline {
+  font-size: 36px;
+  font-weight: 100;
+}
 
+.videos {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, -100px);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.blurred .videos {
+  transform: translate3d(0, 0, 0);
+}
+
+.playing .videos {
+  transform: translate3d(0, 0, 600px);
+  opacity: 0;
+}
+
+.video {
+  flex: 0 0 calc(48%);
+  margin: 2% 0;
+}
+
+.video>img {
+  width: 100%;
+}
+
+footer {
+  position: relative;
+  padding: 56.65% 4% 0;
+}
+
+.history {
+  text-align: center;
+  width: 60%;
+}
+
+/* @end */
