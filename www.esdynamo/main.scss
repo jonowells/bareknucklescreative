@@ -12,11 +12,25 @@ body {
 body {
   font-family: Helvetica, Ariel;
   letter-spacing: 0.2;
-  font-size: 14px;
   background: #000000;
   color: #eee;
   margin: 0 auto;
   height: 100%;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.4em;
+}
+
+h2 {
+  font-size: 32px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1.2em;
 }
 
 a {
@@ -67,16 +81,15 @@ a {
   transform: translate3d(0, 0, 0);
   transform-origin: 0 0 0;
   transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+  .blurred & {
+    filter: blur(10px);
+  }
+  .playing & {
+    opacity: 1;
+    transform: translate3d(0, 0, 200px);
+  }
 }
 
-.blurred .bgvideo {
-  filter: blur(10px);
-}
-
-.playing .bgvideo {
-  opacity: 1;
-  transform: translate3d(0, 0, 200px);
-}
 
 
 /* @end */
@@ -90,6 +103,7 @@ a {
 }
 
 header {
+  text-align: center;
   position: relative;
   padding: 56.65% 4% 0;
 }
@@ -103,21 +117,20 @@ nav {
   width: 30%;
   text-transform: uppercase;
   z-index: 9999;
+  a {
+    margin: 0 3%;
+  }
 }
 
-nav a {
-  margin: 0 3%;
-}
-
-.logo {
-  font-size: 64px;
+.brand {
+  font-size: 44px;
   font-weight: 400;
   margin: 0;
 }
 
 .tagline {
-  font-size: 36px;
   font-weight: 100;
+  width: 60%;
 }
 
 .videos {
@@ -128,24 +141,24 @@ nav a {
   transform-style: preserve-3d;
   transform: translate3d(0, 0, -100px);
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  .blurred & {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .playing & {
+    transform: translate3d(0, 0, 600px);
+    opacity: 0;
+  }
 }
 
-.blurred .videos {
-  transform: translate3d(0, 0, 0);
-}
 
-.playing .videos {
-  transform: translate3d(0, 0, 600px);
-  opacity: 0;
-}
 
 .video {
   flex: 0 0 calc(48%);
   margin: 2% 0;
-}
-
-.video>img {
-  width: 100%;
+  > img {
+    width: 100%;
+  }
 }
 
 footer {
@@ -154,7 +167,6 @@ footer {
 }
 
 .history {
-  text-align: center;
   width: 60%;
 }
 

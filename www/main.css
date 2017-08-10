@@ -1,0 +1,135 @@
+/* @group Global styles */
+* {
+  box-sizing: border-box; }
+
+html,
+body {
+  height: 100%; }
+
+body {
+  font-family: Helvetica, Ariel;
+  letter-spacing: 0.2;
+  background: #000000;
+  color: #eee;
+  margin: 0 auto;
+  height: 100%; }
+
+p {
+  font-size: 18px;
+  line-height: 1.4em; }
+
+h2 {
+  font-size: 32px;
+  text-align: center; }
+
+h3 {
+  font-size: 24px;
+  line-height: 1.2em; }
+
+a {
+  text-decoration: none;
+  color: #eee; }
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center; }
+
+/* @end */
+/* @group Background Frame */
+.frame {
+  position: fixed;
+  z-index: -1;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 56.25%;
+  perspective: 600px; }
+
+.bgvideo {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform-style: preserve-3d;
+  opacity: 0.6;
+  filter: blur(0px);
+  transform: translate3d(0, 0, 0);
+  transform-origin: 0 0 0;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 0.5s ease-in-out; }
+  .blurred .bgvideo {
+    filter: blur(10px); }
+  .playing .bgvideo {
+    opacity: 1;
+    transform: translate3d(0, 0, 200px); }
+
+/* @end */
+/* @group Main Content */
+.content {
+  padding: 0 3%;
+  perspective: 600px; }
+
+header {
+  text-align: center;
+  position: relative;
+  padding: 56.65% 4% 0; }
+
+nav {
+  position: fixed;
+  text-align: right;
+  top: 0;
+  right: 0;
+  margin: 2% 3%;
+  width: 30%;
+  text-transform: uppercase;
+  z-index: 9999; }
+  nav a {
+    margin: 0 3%; }
+
+.brand {
+  font-size: 44px;
+  font-weight: 400;
+  margin: 0; }
+
+.tagline {
+  font-weight: 100;
+  width: 60%; }
+
+.videos {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, -100px);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; }
+  .blurred .videos {
+    transform: translate3d(0, 0, 0); }
+  .playing .videos {
+    transform: translate3d(0, 0, 600px);
+    opacity: 0; }
+
+.video {
+  flex: 0 0 calc(48%);
+  margin: 2% 0; }
+  .video > img {
+    width: 100%; }
+
+footer {
+  position: relative;
+  padding: 56.65% 4% 0; }
+
+.history {
+  width: 60%; }
+
+/* @end */

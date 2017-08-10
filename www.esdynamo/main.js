@@ -44,7 +44,7 @@ function handleScroll(event) {
 function playVideo(event) {
   var video = event.target;
   setBGVideoState("playing");
-  video.parentElement.classList.add("selected")
+  video.parentElement.classList.add("selected");
 }
 
 function pageLoaded() {
