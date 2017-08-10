@@ -41,6 +41,10 @@ function handleScroll(event) {
   ticking = true;
 }
 
+handleScroll(one, two) {
+  element.getElementById("whatever");
+}
+
 function playVideo(event) {
   var video = event.target;
   setBGVideoState("playing");
