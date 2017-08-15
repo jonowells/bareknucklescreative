@@ -14,7 +14,7 @@ function setBGVideoState(newState) {
 
 var lastKnownScrollPosition = 0;
 var ticking = false;
-
+debugger;
 function doScrollActions() {
   if (isOverlap(bgVideo, videos)) {
     setBGVideoState("blurred");
@@ -39,10 +39,6 @@ function handleScroll(event) {
     });
   }
   ticking = true;
-}
-
-handleScroll(one, two) {
-  element.getElementById("whatever");
 }
 
 function playVideo(event) {
