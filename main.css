@@ -1,20 +1,33 @@
 /* @group Global styles */
+
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
 }
 
 body {
-  font-family: Helvetica, Ariel;
+  font-family: Helvetica Neue, Ariel;
+  font-weight: 400;
   letter-spacing: 0.2;
   background: #000000;
   color: #eee;
   margin: 0 auto;
   height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: Helvetica Neue, Ariel;
+  font-weight: 400;
+  letter-spacing: 0.2;
+  background: #000000;
+  color: #eee;
+  margin: 0 auto;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 p {
@@ -37,21 +50,10 @@ a {
   color: #eee;
 }
 
-.container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-}
-
 /* @end */
 
 /* @group Background Frame */
+
 .frame {
   position: fixed;
   z-index: -1;
@@ -91,26 +93,40 @@ a {
 /* @end */
 
 /* @group Main Content */
+
+.container {
+  
+}
+
+.header {
+  text-align: center;
+  position: relative;
+  padding: 56.65% 4% 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .content {
   padding: 0 3%;
   perspective: 600px;
 }
 
-header {
-  text-align: center;
-  position: relative;
-  padding: 56.65% 4% 0;
-}
-
 nav {
-  position: fixed;
-  text-align: right;
-  top: 0;
-  right: 0;
-  margin: 2% 3%;
-  width: 30%;
+  background-color: #b8322d;
+  background-color: #000000;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
   text-transform: uppercase;
   z-index: 9999;
+  padding-top: 100px;
 }
 
 nav a {
@@ -124,11 +140,11 @@ nav a {
 }
 
 .tagline {
-  font-weight: 100;
+  font-weight: 200;
   width: 60%;
 }
 
-.videos {
+.projects {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -138,23 +154,32 @@ nav a {
   transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-.blurred .videos {
+.blurred .projects {
   transform: translate3d(0, 0, 0);
 }
 
-.playing .videos {
+.playing .projects {
   transform: translate3d(0, 0, 600px);
   opacity: 0;
 }
 
-.video {
+.project {
   flex: 0 0 calc(48%);
   margin: 2% 0;
 }
 
-.video > img {
+.project > img {
   width: 100%;
 }
+
+.project > .project-description
+
+footer {
+  position: relative;
+  padding: 56.65% 4% 0;
+}
+
+.project > .project-description
 
 footer {
   position: relative;
