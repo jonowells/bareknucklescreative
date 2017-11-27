@@ -6,46 +6,47 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, minimum-scale = 1.0, initial-scale = 1.0, maximum-scale = 5.0, user-scalable=yes">
 
     <link href="main.css" rel="stylesheet">
-    <script src="https://use.typekit.net/ngk5hub.js"></script>
-    <script>
-        try {
-            Typekit.load({
-                async: true
-            });
-        } catch (e) {}
+    <meta name="description" content="Bare Knuckles description.">
 
-    </script>
 </head>
 
 <body>
+    <!-- TODO: Make this like That Game Company -->
+
     <div class="bg">
-        <img src="assets/bgvideo.jpg" class="bgvideo" alt="Background Video Placeholder">
         <iframe src="https://player.vimeo.com/video/76979871?background=1" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="bgvideo"></iframe>
     </div>
 
-    <div class="nav">
-        <a href="/" alt="Bare Knuckles Nav" class="logo"><img src="/assets/logo1.svg" width="200"></a>
+    <header>
+        <img src="assets/logo1.svg" class="header-logo">
 
+        <div class="header-text">
+            <h1 class="brand">Bare Knuckles Creative</h1>
+            <h3 class="tagline">This is what I like. is a tagline for this page. We are awesome.</h3>
+        </div>
+    </header>
+
+    <nav>
         <a href="/">Work</a>
         <a href="">Studio</a>
+
+        <a href="/" alt="Bare Knuckles Nav" class="nav-logo">
+            <img src="/assets/logo1.svg" width="200">
+        </a>
+
         <a href="">Team</a>
         <a href="">Contact</a>
-    </div>
+    </nav>
 
     <div class="content">
-        <div class="header">
-            <h1 class="brand">Bare Knuckles Creative</h1>
-
-            <h3 class="tagline">This is a tagline for this page. We are awesome.</h3>
-        </div>
-
-        <div class="projects">
+        <section class="projects">
             <div class="project">
                 <img src="assets/video01.png">
                 <h3>National Geographic - Papa John&lsquo;s</h3>
+                <p>Something great</p>
             </div>
 
             <div class="project">
@@ -67,18 +68,20 @@
             <div class="project">
                 <img src="assets/video06.png">
             </div>
-        </div>
+        </section>
 
-        <div class="history">
+        <section class="history">
             <h2>Who is Bareknuckles</h2>
 
             <p>Bare Knuckles Creative (BNUX) was created in 2013 by industry veteran Buddy Hall to disrupt, reinvent and localize Atlanta’s short-form production industry&mdash;for both creative professionals and their clients.</p>
 
             <p>By tapping his vast network of talented artists&mdash;many of whom are equipped to work remotely&mdash;he could offer clients high quality production at very competitive rates, all while keeping overhead and expenses to a bare minimum.</p>
-        </div>
+
+        </section>
 
         <script src="https://player.vimeo.com/api/player.js"></script>
         <script src="main.js"></script>
+
     </div>
 </body>
 
