@@ -62,7 +62,9 @@ nav {
   align-items: top;
   justify-content: space-around;
 }
-
+section {
+  margin: 0 40px;
+}
 .projects {
   display: flex;
   justify-content: space-between;
@@ -70,7 +72,7 @@ nav {
 }
 
 .video-player {
-  width: 45%;
+  width: calc(50% - 20px);
 }
 
 .video-player iframe {

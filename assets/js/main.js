@@ -1,7 +1,7 @@
 var body = document.body;
 
 axios.get('https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/76979871').then(console.log);
-axios.get('https://vimeo.com/api/channels/19429990/videos').then(console.log);
+// axios.get('https://vimeo.com/api/channels/19429990/videos').then(console.log);
 
 function pageLoaded() {
     body.classList.add("default");
@@ -10,7 +10,12 @@ function pageLoaded() {
       title: false,
       byline: false,
       portrait: false,
-      loop: false
+      loop: false,
+      play_bar: false,
+      playbar: false,
+      share: false,
+      embed: false,
+      custom_logo: false
     }
 
     var videos = [
