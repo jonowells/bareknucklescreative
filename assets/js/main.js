@@ -1,65 +1,46 @@
 var body = document.body;
-var bgState;
-var bg;
-var projects;
 
-function setBGState(newState) {
-    if (newState === bgState) {
-        return;
-    }
-
-    body.className = "";
-    body.classList.add(newState);
-    bgState = newState;
-}
-
-var lastKnownScrollPosition = 0;
-var ticking = false;
-
-function doScrollActions() {
-    if (isOverlap(bg, projects)) {
-        setBGState("blurred");
-    } else {
-        setBGState("default");
-    }
-}
-
-function isOverlap(element1, element2) {
-    var rect1 = element1.getBoundingClientRect();
-    var rect2 = element2.getBoundingClientRect();
-    return !(rect1.right < rect2.left || rect1.left > rect2.right || rect1.bottom < rect2.top || rect1.top > rect2.bottom);
-}
-
-function handleScroll(event) {
-    lastKnownScrollPosition = window.scrollY;
-
-    if (!ticking) {
-        window.requestAnimationFrame(function () {
-            doScrollActions();
-            ticking = false;
-        });
-    }
-
-    ticking = true;
-}
-
-function playVideo(event) {
-    event.preventDefault();
-    var project = event.target;
-    setBGState("playing");
-    project.parentElement.classList.add("selected");
-}
+axios.get('https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/76979871').then(console.log);
+axios.get('https://vimeo.com/api/channels/19429990/videos').then(console.log);
 
 function pageLoaded() {
     body.classList.add("default");
-    bg = document.querySelector(".bg");
-    projects = document.querySelector(".projects");
-    window.addEventListener("scroll", handleScroll);
-    // TODO: Use iScroll for this.
-    // https://github.com/cubiq/iscroll
-    window.addEventListener("resize", doScrollActions);
-    projects.addEventListener("mouseup", playVideo);
-    doScrollActions();
+
+    var options = {
+      title: false,
+      byline: false,
+      portrait: false,
+      loop: false
+    }
+
+    var videos = [
+      { id: 242970664 },
+      { id: 239165999 },
+      { id: 242970664 },
+      { id: 229059335 },
+      { id: 228213588 },
+      { id: 202099709 },
+      { id: 202099574 },
+      { id: 202099174 }
+    ];
+
+    var players = [];
+
+    players[0] = new Vimeo.Player('video01', Object.assign(options, videos[0]));
+    players[1] = new Vimeo.Player('video02', Object.assign(options, videos[1]));
+    players[2] = new Vimeo.Player('video03', Object.assign(options, videos[2]));
+    players[3] = new Vimeo.Player('video04', Object.assign(options, videos[3]));
+    players[4] = new Vimeo.Player('video05', Object.assign(options, videos[4]));
+    players[5] = new Vimeo.Player('video06', Object.assign(options, videos[5]));
+    players[6] = new Vimeo.Player('video07', Object.assign(options, videos[6]));
+    players[7] = new Vimeo.Player('video08', Object.assign(options, videos[7]));
+
+    function played() {
+      console.log('played the video!');
+    }
+    players.forEach(function(player) {
+      player.on('play', played);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", pageLoaded);
